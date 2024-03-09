@@ -1,6 +1,5 @@
 // TaxisController.java
 package com.example.Fleet.Management.software.API.controllers;
-
 import com.example.Fleet.Management.software.API.services.TaxisServices;
 import com.example.Fleet.Management.software.API.models.Taxi;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,17 +24,10 @@ public class TaxisController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Se encontraron todos los taxis",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Taxi.class)) }),
-            @ApiResponse(responseCode = "500", description = "Error interno del servidor")
-    })
+                            schema = @Schema(implementation = Taxi.class)) }) })
 
     @GetMapping
     public List<Taxi> getAllTaxis() {
-        try {
-            return taxisServices.getAllTaxis();
-        } catch (Exception e) {
-            // Manejo de errores, podrías loguear el error y devolver un mensaje de error adecuado
-            throw new RuntimeException("Error al recuperar los taxis", e);
-        }
-    }
+        return taxisServices.getAllTaxis();
+}
 }

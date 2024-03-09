@@ -2,8 +2,8 @@
 Sprint learnings
 Los aprendizajes del sprint fueron:
 
-Hacer la base de datos.
-Conectar la base de datos.
+Configuración de swagger.
+Entender como hacer el endpoint para listar los taxis y las trayectorias.
 
 Changed
 Se agregó la url, el username y el password para conectar la base de datos con el proyecto.
