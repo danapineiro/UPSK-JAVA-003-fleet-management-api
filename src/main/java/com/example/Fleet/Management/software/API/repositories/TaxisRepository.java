@@ -1,9 +1,10 @@
 package com.example.Fleet.Management.software.API.repositories;
-
 import com.example.Fleet.Management.software.API.models.Taxi;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-@Repository
-public interface TaxisRepository extends JpaRepository<Taxi, Long>{
-        }
+
+public interface TaxisRepository extends PagingAndSortingRepository<Taxi, Long> {
+
+
+
+}
