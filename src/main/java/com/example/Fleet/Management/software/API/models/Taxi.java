@@ -1,34 +1,33 @@
 package com.example.Fleet.Management.software.API.models;
 
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import jakarta.persistence.*; // Importación de las anotaciones de JPA
 
 
-@Entity
-@Table(name="taxis")
 
+@Entity // indica que esta clase es una entidad JPA
+@Table(name = "taxis") // Especifica el nombre de la tabla en la base de datos
 public class Taxi {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private Long id;
 
-    @Column
-    private String plate;
+    @Id // Indica que este atributo es la clave primaria
+    @Column(name= "id") // Especifica el nombre de la columna en la tabla
+    private Long id; // Identificador único del taxi
 
-    @Column
-    private Double latitude;
-
-    @Column
-    private Double longitude;
-
-    @Column
-    private LocalDateTime timestamp;
+    @Column(name= "plate") // Especifica el nombre de la columna en la tabla
+    private String plate; // Matrícula del taxi
 
 
-    // Getters y setters constructor
+    // Constructor vacío requerido por JPA
+    public Taxi() {}
+
+    // Constructor con parámetros para inicializar todos los atributos
+    public Taxi(Long id, String plate) {
+        this.id = id;
+        this.plate = plate;
+    }
+
+    // Getters y setters para acceder y modificar los atributos
     public Long getId() {
         return id;
     }
@@ -44,33 +43,4 @@ public class Taxi {
     public void setPlate(String plate) {
         this.plate = plate;
     }
-
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "taxi_id")
-    private Taxi taxi;
 }
-

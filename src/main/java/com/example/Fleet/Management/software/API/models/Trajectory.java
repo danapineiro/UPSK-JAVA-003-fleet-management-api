@@ -1,39 +1,38 @@
 package com.example.Fleet.Management.software.API.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.*; // Importaciones de JPA
 
-import java.time.OffsetDateTime;
+import java.time.OffsetDateTime; // Importación para trabajar con fechas y hora
 
-@Entity
-@Table(name = "trajectories")
+@Entity // Indica que esta clase es una entidad JPA
+@Table(name = "trajectories") // Especifica el nombre de la tabla en la base de datos
 
 public class Trajectory {
 
 
-    //Atributos de la entidad o clase
-    @Id
-    // @Column(name= "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    // Atributos de la clase
+    @Id // Indica que este atributo es la clave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Genera automáticamente valores únicos para la clave primaria
+    private long id; // Identificador único de la trayectoria
 
-    @ManyToOne()
-    @JoinColumn(name= "taxi_id")
-    private Taxi taxi; //tipo taxi join colum manyToOne ManyToOne - OneToMany - JoinColumn
+    @ManyToOne() // Relación many-to-one con la clase Taxi
+    @JoinColumn(name= "taxi_id") // Especifica la columna en la tabla para la clave foránea
+    private Taxi taxi; // Taxi asociado a esta trayectoria
 
     // @Column (name= "date")
-    private OffsetDateTime date;
+    private OffsetDateTime date; // Fecha y hora de la trayectoria
 
     // @Column (name="latitude")
-    private double latitude;
+    private double latitude; // Latitud de la ubicación de la trayectoria
 
     // @Column (name="longitude")
-    private double longitude;
+    private double longitude; // Longitud de la ubicación de la trayectoria
 
 
-    //constructor vacío jpa
+    //constructor vacío REQUERIDO jpa
     public Trajectory() {}
 
-    //constructor con parámetros
+    //constructor con parámetros PARA INICIALIZAR TODOS LOS ATRIBUTOS
     public Trajectory(long id, Taxi taxi, OffsetDateTime date, double latitude, double longitude) {
         this.id = id;
         this.date=date;
@@ -42,7 +41,7 @@ public class Trajectory {
         this.taxi= taxi;
     }
 
-    //Getters y setters
+    //Getters y setters PARA ACCEDER Y MODIFICAR LOS ATRIBUTOS
     public Long getId() {
         return id;
     }
@@ -63,5 +62,5 @@ public class Trajectory {
 
     public double getLongitude() {return longitude;}
 
-    public void setLongitude(double longitude) {this.longitude = longitude;}
+    public void setLongitude(double longitude) {this.longitude=longitude;}
 }
