@@ -1,13 +1,14 @@
 package com.example.Fleet.Management.software.API;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication; // Importación de la clase SpringApplication de Spring Boot
+import org.springframework.boot.autoconfigure.SpringBootApplication; // Importación de la anotación SpringBootApplication de Spring Boot
 
-@SpringBootApplication
-public class FleetManagementSoftwareApiApplication {
+@SpringBootApplication // Anotación que combina @Configuration, @EnableAutoConfiguration y @ComponentScan
 
-	public static void main(String[] args) {
-		SpringApplication.run(FleetManagementSoftwareApiApplication.class, args);
+public class FleetManagementSoftwareApiApplication { // Clase principal de la aplicación
+
+	public static void main(String[] args) { // Método principal de la aplicación
+		SpringApplication.run(FleetManagementSoftwareApiApplication.class, args); // Inicia la aplicación Spring Boot
 	}
 
 }
